@@ -10,8 +10,8 @@ Django blog application built with AMP technology to speed up loading on mobile 
   <img width="500" alt="image" src="https://user-images.githubusercontent.com/69528812/201313939-31af9d95-5d04-464d-a78c-626c5e084167.png">
 - ### AMP Technology
   this technology can speed up the process of loading applications on mobile browsers.
-  
-  <img width="500" alt="image" src="https://user-images.githubusercontent.com/69528812/201313939-31af9d95-5d04-464d-a78c-626c5e084167.png">
+
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/69528812/201315817-ce8889eb-a947-4b80-b19b-3cbf6cfaddab.png">
 - ### RSS Feeds
   Useful for spreading the latest blog content.
   
