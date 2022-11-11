@@ -1,8 +1,27 @@
 ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white) ![Amp](https://img.shields.io/badge/Amp-005AF0?style=for-the-badge&logo=amp&logoColor=white) ![Rss](https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white) 
 
 # Django AMP Blog
-Halaman website Regi Apriandi termasuk halaman blog dan resume yang dibagun menggunakan framework Django.
+Django blog application built with AMP technology to speed up loading on mobile browsers. This blog application is integrated with django-summernote technology where this technology makes it easy to write blogs on the django admin admin page. This application has also built an RSS feed which is very much needed on a blog.
 
+## Features
+- ### Django-Summernote
+  This feature makes it very easy to write blogs in the application.
+  
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/69528812/201313939-31af9d95-5d04-464d-a78c-626c5e084167.png">
+- ### AMP Technology
+  this technology can speed up the process of loading applications on mobile browsers.
+  
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/69528812/201313939-31af9d95-5d04-464d-a78c-626c5e084167.png">
+- ### RSS Feeds
+  Useful for spreading the latest blog content.
+  
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/69528812/201314545-1d836c0c-f9a4-4350-882c-f0d936884c42.png">
+- ### Sitemap
+  Very important to improve the SEO of a blog.
+  
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/69528812/201314621-68631951-ab09-473a-83b5-0e5155fb8d75.png">
+
+# Build the App
 ## Docker Compose
 ```
 sudo docker compose up -d
