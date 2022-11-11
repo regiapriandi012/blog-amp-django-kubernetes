@@ -7,119 +7,41 @@
     <link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Raleway:400, 600' rel='stylesheet' type='text/css'>
     <!--<link href='https://fonts.googleapis.com/css?family=Raleway:400, 600' rel="prefetch" as="font" type="font" crossorigin="anonymous">-->
-    <link rel="amphtml" href="https://regiapriandi.me{% url 'post_detail_amp' post.slug  %}"/>
-    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-    </script>
-    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
     <!--<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css'/>-->
+    <!--<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">-->
+    <!-- CSS only -->
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
+    <link rel="amphtml" href="https://regiapriandi.me{% url 'blog_amp' %}"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"/>
     <!--<script data-ad-client="ca-pub-7279595890212028" async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7279595890212028"
-    crossorigin="anonymous"></script>-->
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7279595890212028"
             crossorigin="anonymous"></script>
-    <!-- CSS only
-    -->
-    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
-    <!--<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">-->
-    {% block title %}
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"/>
-    <meta name="title" content="{{ post.title }}">
-    <meta name="keywords" content="{{ post.title }}">
-    <meta name="description" content="{{post.content | striptags | truncatewords:150 }}">
-    <meta property="og:title" content="{{ post.title }}">
-    <meta property="og:site_name" content="Regi Apriandi Blog">
-    <meta property="og:url" content="https://regiapriandi.me{% url 'post_detail' post.slug %}">
-    <meta property="og:description" content="{{ post.content | striptags | truncatewords:150  }}">
-    <meta property="og:type" content="article">
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://regiapriandi.me{% url 'post_detail' post.slug %}"
-            },
-            "headline": "{{post.title}}",
-            "image": [
-                "https://regiapriandi.me{{ post.image.url }}"
-            ],
-            "datePublished": "{{ post.created_on }}",
-            "dateModified": "{{ post.updated_on }}",
-            "author": {
-                "@type": "Person",
-                "name": "{{ post.name_author }}",
-                "url": "https://regiapriandi.me/resume"
-            },
-            "publisher": {
-                "@type": "Organization",
-                "name": "{{ post.publisher }}",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://regiapriandi.me{{ post.publisher_logo.url }}"
-                }
-            }
-        }
-    </script>
-    <title>{{ post.title }} | Regi Apriandi Blog</title>
+    <meta name="description"
+          content="Blog Regi Apriandi yaitu blog yang berisi informasi mengenai teknologi dan seputar informatika seperti programing, machine learning, networking dan cloud computing">
+    <meta name="keywords"
+          content="machine learning Machine Learning Iot Internet of things cloud computing programming tutorial python docker flask computer science student">
+    <meta property="og:title" content="Regi Apriandi Blog">
+    <meta property="og:description"
+          content="Blog Regi Apriandi yaitu blog yang berisi informasi mengenai teknologi dan seputar informatika seperti programing, machine learning, networking dan cloud computing">
+    <meta property="og:url" content="https://regiapriandi.me/blog">
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <title>Regi Apriandi | Blog</title>
     <style amp-custom>
-        form.amp-form-submit-success [submit-success],
-        form.amp-form-submit-error [submit-error] {
-            margin-top: 16px;
-        }
-
-        form.amp-form-submit-success [submit-success] {
-            color: white;
-            background-color: gray;
-        }
-
-        form.amp-form-submit-error [submit-error] {
-            color: red;
-        }
-
-        form.amp-form-submit-success.hide-inputs > input {
-            display: none;
-        }
-
         * {
             box-sizing: border-box;
             font-family: 'Raleway', sans-serif;
         }
 
         .cover-image {
-            padding: 15px 0 15px 0;
+            padding: 15px;
         }
 
         a {
             border: none;
             background-color: transparent;
-        }
-
-        input[type=text] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            border-radius: 5px;
-        }
-
-        input[type=email] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            border-radius: 5px;
-        }
-
-        textarea {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            border-radius: 5px;
         }
 
         .column {
@@ -3771,9 +3693,26 @@
             margin-bottom: 3rem
         }
 
-        .featured-image-list {
-            object-fit: cover;
+        .pagination {
+            display: flex;
+            padding-left: 0;
+            list-style: none
         }
+
+        .page-link {
+            position: relative;
+            display: block;
+            color: #0d6efd;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+        }
+
+        .justify-content-center {
+            justify-content: center !important
+        }
+    </style>
     </style>
 
     <style amp-boilerplate>
@@ -3859,13 +3798,8 @@
 
 <main>
     <section>
-        <div style="text-align: center;">
-            <h1
-                    style="font-weight: bold; padding-top: 80px; padding-bottom: 20px; padding-left: 20px; padding-right:20px; font-size: 30px;">
-                {{ post.title }} {% endblock title %}</h1>
-            <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
-            <!--{% load social_share %}
-        {% post_to_linkedin object_or_url %}-->
+        <div>
+            <h1 style="color: white;padding-top: 0px; padding-bottom: 0px; font-size:1px">.</h1>
         </div>
     </section>
 </main>
@@ -3873,70 +3807,49 @@
 <section class="supporting">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 card mb-4  mt-3 left  top">
-                <div class="card-body">
-                    <div class="cover-image">
-                        <amp-img src="{{ post.image.url }}" class="rounded" width="280" height="172" layout="responsive"
-                                 alt="{{post.title}}"></amp-img>
+            <!-- Blog Entries Column -->
+            <div class="col-md-8 mt-3 left">
+                {% for post in post_list %}
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="cover-image">
+                            <a href="{% url 'post_detail' post.slug  %}">
+                                <amp-img src="{{ post.image.url }}" layout="responsive" width="280" height="172"
+                                         class="rounded" alt="{{ post.title }}"></amp-img>
+                            </a>
+                        </div>
+                        <a style="text-transform: none; text-decoration: none; color: black;"
+                           href="{% url 'post_detail' post.slug  %}">
+                            <h3 style="text-transform: none; text-decoration: none;">{{ post.title }}</h3>
+                        </a>
+                        <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
+                        <p class="card-text">{{post.content | striptags | truncatewords:25 }}</p>
+                        <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
                     </div>
-                    <p style="text-align: left;" class="card-text ">{{ post.content | safe | linebreaksbr }}</p>
                 </div>
+                {% endfor %}
             </div>
             {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
-            <div class="col-md-8 card mb-4  mt-3 ">
-                <div class="card-body">
-                    <!-- comments -->
-                    <h2>{{ comments.count }} comments</h2>
-
-                    {% for comment in comments %}
-                    <div class="comments" style="padding: 10px;">
-                        <p class="font-weight-bold">
-                            {{ comment.name }}
-                            <span class=" text-muted font-weight-normal">
-                  {{ comment.created_on }}
-                </span>
-                        </p>
-                        {{ comment.body | linebreaks }}
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="col-md-8 card mb-4  mt-3 ">
-                <div class="card-body">
-                    {% if new_comment %}
-                    <div class="alert alert-success" role="alert">
-                        Your comment is awaiting moderation
-                    </div>
-                    {% else %}
-                    <h3>Leave a comment</h3>
-                    {% load crispy_forms_tags %}
-                    <form style="text-align: left; width: 100%;" target="_top" method="post"
-                          action-xhr="{% url 'post_detail' post.slug  %}">
-                        {% csrf_token %}
-                        {{ comment_form | crispy }}
-                        <br><button type="submit" value="Submit" class="btn btn-primary btn-lg">Submit</button>
-                        <div submit-success>
-                            <template type="amp-mustache">
-                                Comment Submitted, Thanks!
-                            </template>
-                        </div>
-
-                        <div submit-error>
-                            <template type="amp-mustache">
-                                Comment Not Submitted!
-                            </template>
-                        </div>
-                    </form>
-                    {% endif %}
-                </div>
-            </div>
         </div>
+        {% if is_paginated %}
+        <nav aria-label="Page navigation container"></nav>
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <div><a href="?page={{ page_obj.previous_page_number }}" class="btn btn-primary page-link">&laquo; PREV PAGE</a></div>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <div><a href="?page={{ page_obj.next_page_number }}" class="btn btn-primary page-link">NEXT PAGE &raquo;</a></div>
+            {% endif %}
+        </ul>
+        </nav>
+    </div>
+    {% endif %}
     </div>
 </section>
 
 <footer style="background-color: black;">
     <div class="container">
-        <p><a class="nav-link" href="{% url 'index' %}" style="text-decoration: none; color: white">&copy;
+        <p><a class="nav-link" href="" style="text-decoration: none; color: white">&copy;
             regiapriandi.me 2022</a>
             <a href="https://www.digitalocean.com/?refcode=c80595539677&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img
                     src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%202.svg"

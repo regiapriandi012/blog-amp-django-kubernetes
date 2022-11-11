@@ -1,10 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: django-blog-amp-app-ingress
+  name: djangoBlogAmpApp-ingress
 spec:
   defaultBackend:
     service:
-      name: django-blog-amp-app-v2-service
+      name: djangoBlogAmpApp-v2-service
       port:
         number: 8000

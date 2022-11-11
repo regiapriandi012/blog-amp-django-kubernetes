@@ -1,15 +1,15 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: django-blog-amp-app-migrate
+  name: djangoBlogAmpApp-migrate
 spec:
   template:
     spec:
       containers:
-        - name: django-blog-amp-app-v2-app
+        - name: djangoBlogAmpApp-v2-app
           image: regiapriandi012/bismillah-final-deploykube:latest
           command: ["/bin/sh","-c"]
-          args: ["python manage.py makemigrations django-blog-amp-app && python manage.py migrate"]
+          args: ["python manage.py makemigrations djangoBlogAmpApp && python manage.py migrate"]
           env:
             - name: DATABASE_USER
               value: "regiapriandi"

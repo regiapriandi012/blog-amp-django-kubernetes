@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import Post, Photography, Award, Certification, Project, Publication, Programing, Comment
+from .models import Post, Comment
 from django.http import HttpResponse
 from django.views import View
 from .forms import CommentForm, CommentFormAmp

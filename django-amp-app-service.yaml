@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: django-blog-amp-app-v2-service
+  name: djangoBlogAmpApp-v2-service
 spec:
   type: NodePort
   ports:
@@ -9,5 +9,5 @@ spec:
       port: 8000
       targetPort: 8000
   selector:
-    app: django-blog-amp-app-v2-app
+    app: djangoBlogAmpApp-v2-app
 

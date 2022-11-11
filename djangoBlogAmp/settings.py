@@ -15,7 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'secret_key'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django-blog-amp-app',
+    'djangoBlogAmpApp',
     'crispy_forms',
     'django_social_share',
     'django_summernote',
@@ -56,7 +56,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 #  'http://localhost:8000',
 #)
 
-ROOT_URLCONF = 'django-blog-amp.urls'
+ROOT_URLCONF = 'djangoBlogAmp.urls'
 
 TEMPLATES_DIRS = os.path.join(BASE_DIR,'templates')
 
@@ -76,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django-blog-amp.wsgi.application'
+WSGI_APPLICATION = 'djangoBlogAmp.wsgi.application'
 
 
 # Database
@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'django-blog-amp.wsgi.application'
     }
 }"""
 
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -113,7 +113,7 @@ DATABASES={
       'PORT':'5432',
    }
 }
-
+"""
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 

@@ -6,42 +6,108 @@
     <meta charset="utf-8">
     <link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Raleway:400, 600' rel='stylesheet' type='text/css'>
-    <!--<link href='https://fonts.googleapis.com/css?family=Raleway:400, 600' rel="prefetch" as="font" type="font" crossorigin="anonymous">-->
-    <!--<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css'/>-->
-    <!--<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">-->
-    <!-- CSS only -->
-    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
-    <link rel="amphtml" href="https://regiapriandi.me{% url 'blog_amp' %}"/>
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"/>
-    <!--<script data-ad-client="ca-pub-7279595890212028" async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7279595890212028"
-            crossorigin="anonymous"></script>
-    <meta name="description"
-          content="Blog Regi Apriandi yaitu blog yang berisi informasi mengenai teknologi dan seputar informatika seperti programing, machine learning, networking dan cloud computing">
-    <meta name="keywords"
-          content="machine learning Machine Learning Iot Internet of things cloud computing programming tutorial python docker flask computer science student">
-    <meta property="og:title" content="Regi Apriandi Blog">
-    <meta property="og:description"
-          content="Blog Regi Apriandi yaitu blog yang berisi informasi mengenai teknologi dan seputar informatika seperti programing, machine learning, networking dan cloud computing">
-    <meta property="og:url" content="https://regiapriandi.me/blog">
+    <link rel="canonical" href="https://regiapriandi.me{% url 'post_detail' post.slug  %}"/>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    </script>
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-    <title>Regi Apriandi | Blog</title>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+    {% block title %}
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"/>
+    <meta name="title" content="{{ post.title }}">
+    <meta name="keywords" content="{{ post.title }}">
+    <meta name="description" content="{{post.content | striptags | truncatewords:150 }}">
+    <meta property="og:title" content="{{ post.title }}">
+    <meta property="og:site_name" content="Regi Apriandi Blog">
+    <meta property="og:url" content="https://regiapriandi.me{% url 'post_detail_amp' post.slug %}">
+    <meta property="og:description" content="{{ post.content | striptags | truncatewords:150  }}">
+    <meta property="og:type" content="article">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://regiapriandi.me{% url 'post_detail_amp' post.slug %}"
+            },
+            "headline": "{{post.title}}",
+            "image": [
+                "https://regiapriandi.me{{ post.image.url }}"
+            ],
+            "datePublished": "{{ post.created_on }}",
+            "dateModified": "{{ post.updated_on }}",
+            "author": {
+                "@type": "Person",
+                "name": "{{ post.name_author }}",
+                "url": "https://regiapriandi.me/resume"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "{{ post.publisher }}",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://regiapriandi.me{{ post.publisher_logo.url }}"
+                }
+            }
+        }
+    </script>
+    <title>{{ post.title }} | Regi Apriandi Blog</title>
     <style amp-custom>
+        form.amp-form-submit-success [submit-success],
+        form.amp-form-submit-error [submit-error] {
+            margin-top: 16px;
+        }
+
+        form.amp-form-submit-success [submit-success] {
+            color: white;
+            background-color: gray;
+        }
+
+        form.amp-form-submit-error [submit-error] {
+            color: red;
+        }
+
+        form.amp-form-submit-success.hide-inputs > input {
+            display: none;
+        }
+
         * {
             box-sizing: border-box;
             font-family: 'Raleway', sans-serif;
         }
 
         .cover-image {
-            padding: 15px;
+            padding: 15px 0 15px 0;
         }
 
         a {
             border: none;
             background-color: transparent;
+        }
+
+        input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        input[type=email] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border-radius: 5px;
         }
 
         .column {
@@ -156,7 +222,6 @@
             font-weight: var(--bs-body-font-weight);
             line-height: var(--bs-body-line-height);
             color: var(--bs-body-color);
-            text-align: var(--bs-body-text-align);
             background-color: var(--bs-body-bg);
             -webkit-text-size-adjust: 100%;
             -webkit-tap-highlight-color: transparent
@@ -592,179 +657,7 @@
             width: 16.6666666667%
         }
 
-        .col-auto {
-            flex: 0 0 auto;
-            width: auto
-        }
-
-        .col-1 {
-            flex: 0 0 auto;
-            width: 8.33333333%
-        }
-
-        .col-2 {
-            flex: 0 0 auto;
-            width: 16.66666667%
-        }
-
-        .col-3 {
-            flex: 0 0 auto;
-            width: 25%
-        }
-
-        .col-4 {
-            flex: 0 0 auto;
-            width: 33.33333333%
-        }
-
-        .col-5 {
-            flex: 0 0 auto;
-            width: 41.66666667%
-        }
-
-        .col-6 {
-            flex: 0 0 auto;
-            width: 50%
-        }
-
-        .col-7 {
-            flex: 0 0 auto;
-            width: 58.33333333%
-        }
-
-        .col-8 {
-            flex: 0 0 auto;
-            width: 66.66666667%
-        }
-
-        .col-9 {
-            flex: 0 0 auto;
-            width: 75%
-        }
-
-        .col-10 {
-            flex: 0 0 auto;
-            width: 83.33333333%
-        }
-
-        .col-11 {
-            flex: 0 0 auto;
-            width: 91.66666667%
-        }
-
-        .col-12 {
-            flex: 0 0 auto;
-            width: 100%
-        }
-
-        .offset-1 {
-            margin-left: 8.33333333%
-        }
-
-        .offset-2 {
-            margin-left: 16.66666667%
-        }
-
-        .offset-3 {
-            margin-left: 25%
-        }
-
-        .offset-4 {
-            margin-left: 33.33333333%
-        }
-
-        .offset-5 {
-            margin-left: 41.66666667%
-        }
-
-        .offset-6 {
-            margin-left: 50%
-        }
-
-        .offset-7 {
-            margin-left: 58.33333333%
-        }
-
-        .offset-8 {
-            margin-left: 66.66666667%
-        }
-
-        .offset-9 {
-            margin-left: 75%
-        }
-
-        .offset-10 {
-            margin-left: 83.33333333%
-        }
-
-        .offset-11 {
-            margin-left: 91.66666667%
-        }
-
-        .g-0,
-        .gx-0 {
-            --bs-gutter-x: 0
-        }
-
-        .g-0,
-        .gy-0 {
-            --bs-gutter-y: 0
-        }
-
-        .g-1,
-        .gx-1 {
-            --bs-gutter-x: 0.25rem
-        }
-
-        .g-1,
-        .gy-1 {
-            --bs-gutter-y: 0.25rem
-        }
-
-        .g-2,
-        .gx-2 {
-            --bs-gutter-x: 0.5rem
-        }
-
-        .g-2,
-        .gy-2 {
-            --bs-gutter-y: 0.5rem
-        }
-
-        .g-3,
-        .gx-3 {
-            --bs-gutter-x: 1rem
-        }
-
-        .g-3,
-        .gy-3 {
-            --bs-gutter-y: 1rem
-        }
-
-        .g-4,
-        .gx-4 {
-            --bs-gutter-x: 1.5rem
-        }
-
-        .g-4,
-        .gy-4 {
-            --bs-gutter-y: 1.5rem
-        }
-
-        .g-5,
-        .gx-5 {
-            --bs-gutter-x: 3rem
-        }
-
-        .g-5,
-        .gy-5 {
-            --bs-gutter-y: 3rem
-        }
-
         @media (min-width: 576px) {
-            .col-sm {
-                flex: 1 0 0%
-            }
 
             .row-cols-sm-auto > * {
                 flex: 0 0 auto;
@@ -864,114 +757,6 @@
             .col-sm-12 {
                 flex: 0 0 auto;
                 width: 100%
-            }
-
-            .offset-sm-0 {
-                margin-left: 0
-            }
-
-            .offset-sm-1 {
-                margin-left: 8.33333333%
-            }
-
-            .offset-sm-2 {
-                margin-left: 16.66666667%
-            }
-
-            .offset-sm-3 {
-                margin-left: 25%
-            }
-
-            .offset-sm-4 {
-                margin-left: 33.33333333%
-            }
-
-            .offset-sm-5 {
-                margin-left: 41.66666667%
-            }
-
-            .offset-sm-6 {
-                margin-left: 50%
-            }
-
-            .offset-sm-7 {
-                margin-left: 58.33333333%
-            }
-
-            .offset-sm-8 {
-                margin-left: 66.66666667%
-            }
-
-            .offset-sm-9 {
-                margin-left: 75%
-            }
-
-            .offset-sm-10 {
-                margin-left: 83.33333333%
-            }
-
-            .offset-sm-11 {
-                margin-left: 91.66666667%
-            }
-
-            .g-sm-0,
-            .gx-sm-0 {
-                --bs-gutter-x: 0
-            }
-
-            .g-sm-0,
-            .gy-sm-0 {
-                --bs-gutter-y: 0
-            }
-
-            .g-sm-1,
-            .gx-sm-1 {
-                --bs-gutter-x: 0.25rem
-            }
-
-            .g-sm-1,
-            .gy-sm-1 {
-                --bs-gutter-y: 0.25rem
-            }
-
-            .g-sm-2,
-            .gx-sm-2 {
-                --bs-gutter-x: 0.5rem
-            }
-
-            .g-sm-2,
-            .gy-sm-2 {
-                --bs-gutter-y: 0.5rem
-            }
-
-            .g-sm-3,
-            .gx-sm-3 {
-                --bs-gutter-x: 1rem
-            }
-
-            .g-sm-3,
-            .gy-sm-3 {
-                --bs-gutter-y: 1rem
-            }
-
-            .g-sm-4,
-            .gx-sm-4 {
-                --bs-gutter-x: 1.5rem
-            }
-
-            .g-sm-4,
-            .gy-sm-4 {
-                --bs-gutter-y: 1.5rem
-            }
-
-            .g-sm-5,
-            .gx-sm-5 {
-                --bs-gutter-x: 3rem
-            }
-
-            .g-sm-5,
-            .gy-sm-5 {
-                --bs-gutter-y: 3rem
             }
         }
 
@@ -1079,120 +864,9 @@
                 flex: 0 0 auto;
                 width: 100%
             }
-
-            .offset-md-0 {
-                margin-left: 0
-            }
-
-            .offset-md-1 {
-                margin-left: 8.33333333%
-            }
-
-            .offset-md-2 {
-                margin-left: 16.66666667%
-            }
-
-            .offset-md-3 {
-                margin-left: 25%
-            }
-
-            .offset-md-4 {
-                margin-left: 33.33333333%
-            }
-
-            .offset-md-5 {
-                margin-left: 41.66666667%
-            }
-
-            .offset-md-6 {
-                margin-left: 50%
-            }
-
-            .offset-md-7 {
-                margin-left: 58.33333333%
-            }
-
-            .offset-md-8 {
-                margin-left: 66.66666667%
-            }
-
-            .offset-md-9 {
-                margin-left: 75%
-            }
-
-            .offset-md-10 {
-                margin-left: 83.33333333%
-            }
-
-            .offset-md-11 {
-                margin-left: 91.66666667%
-            }
-
-            .g-md-0,
-            .gx-md-0 {
-                --bs-gutter-x: 0
-            }
-
-            .g-md-0,
-            .gy-md-0 {
-                --bs-gutter-y: 0
-            }
-
-            .g-md-1,
-            .gx-md-1 {
-                --bs-gutter-x: 0.25rem
-            }
-
-            .g-md-1,
-            .gy-md-1 {
-                --bs-gutter-y: 0.25rem
-            }
-
-            .g-md-2,
-            .gx-md-2 {
-                --bs-gutter-x: 0.5rem
-            }
-
-            .g-md-2,
-            .gy-md-2 {
-                --bs-gutter-y: 0.5rem
-            }
-
-            .g-md-3,
-            .gx-md-3 {
-                --bs-gutter-x: 1rem
-            }
-
-            .g-md-3,
-            .gy-md-3 {
-                --bs-gutter-y: 1rem
-            }
-
-            .g-md-4,
-            .gx-md-4 {
-                --bs-gutter-x: 1.5rem
-            }
-
-            .g-md-4,
-            .gy-md-4 {
-                --bs-gutter-y: 1.5rem
-            }
-
-            .g-md-5,
-            .gx-md-5 {
-                --bs-gutter-x: 3rem
-            }
-
-            .g-md-5,
-            .gy-md-5 {
-                --bs-gutter-y: 3rem
-            }
         }
 
         @media (min-width: 992px) {
-            .col-lg {
-                flex: 1 0 0%
-            }
 
             .row-cols-lg-auto > * {
                 flex: 0 0 auto;
@@ -1228,185 +902,9 @@
                 flex: 0 0 auto;
                 width: 16.6666666667%
             }
-
-            .col-lg-auto {
-                flex: 0 0 auto;
-                width: auto
-            }
-
-            .col-lg-1 {
-                flex: 0 0 auto;
-                width: 8.33333333%
-            }
-
-            .col-lg-2 {
-                flex: 0 0 auto;
-                width: 16.66666667%
-            }
-
-            .col-lg-3 {
-                flex: 0 0 auto;
-                width: 25%
-            }
-
-            .col-lg-4 {
-                flex: 0 0 auto;
-                width: 33.33333333%
-            }
-
-            .col-lg-5 {
-                flex: 0 0 auto;
-                width: 41.66666667%
-            }
-
-            .col-lg-6 {
-                flex: 0 0 auto;
-                width: 50%
-            }
-
-            .col-lg-7 {
-                flex: 0 0 auto;
-                width: 58.33333333%
-            }
-
-            .col-lg-8 {
-                flex: 0 0 auto;
-                width: 66.66666667%
-            }
-
-            .col-lg-9 {
-                flex: 0 0 auto;
-                width: 75%
-            }
-
-            .col-lg-10 {
-                flex: 0 0 auto;
-                width: 83.33333333%
-            }
-
-            .col-lg-11 {
-                flex: 0 0 auto;
-                width: 91.66666667%
-            }
-
-            .col-lg-12 {
-                flex: 0 0 auto;
-                width: 100%
-            }
-
-            .offset-lg-0 {
-                margin-left: 0
-            }
-
-            .offset-lg-1 {
-                margin-left: 8.33333333%
-            }
-
-            .offset-lg-2 {
-                margin-left: 16.66666667%
-            }
-
-            .offset-lg-3 {
-                margin-left: 25%
-            }
-
-            .offset-lg-4 {
-                margin-left: 33.33333333%
-            }
-
-            .offset-lg-5 {
-                margin-left: 41.66666667%
-            }
-
-            .offset-lg-6 {
-                margin-left: 50%
-            }
-
-            .offset-lg-7 {
-                margin-left: 58.33333333%
-            }
-
-            .offset-lg-8 {
-                margin-left: 66.66666667%
-            }
-
-            .offset-lg-9 {
-                margin-left: 75%
-            }
-
-            .offset-lg-10 {
-                margin-left: 83.33333333%
-            }
-
-            .offset-lg-11 {
-                margin-left: 91.66666667%
-            }
-
-            .g-lg-0,
-            .gx-lg-0 {
-                --bs-gutter-x: 0
-            }
-
-            .g-lg-0,
-            .gy-lg-0 {
-                --bs-gutter-y: 0
-            }
-
-            .g-lg-1,
-            .gx-lg-1 {
-                --bs-gutter-x: 0.25rem
-            }
-
-            .g-lg-1,
-            .gy-lg-1 {
-                --bs-gutter-y: 0.25rem
-            }
-
-            .g-lg-2,
-            .gx-lg-2 {
-                --bs-gutter-x: 0.5rem
-            }
-
-            .g-lg-2,
-            .gy-lg-2 {
-                --bs-gutter-y: 0.5rem
-            }
-
-            .g-lg-3,
-            .gx-lg-3 {
-                --bs-gutter-x: 1rem
-            }
-
-            .g-lg-3,
-            .gy-lg-3 {
-                --bs-gutter-y: 1rem
-            }
-
-            .g-lg-4,
-            .gx-lg-4 {
-                --bs-gutter-x: 1.5rem
-            }
-
-            .g-lg-4,
-            .gy-lg-4 {
-                --bs-gutter-y: 1.5rem
-            }
-
-            .g-lg-5,
-            .gx-lg-5 {
-                --bs-gutter-x: 3rem
-            }
-
-            .g-lg-5,
-            .gy-lg-5 {
-                --bs-gutter-y: 3rem
-            }
         }
 
         @media (min-width: 1200px) {
-            .col-xl {
-                flex: 1 0 0%
-            }
 
             .row-cols-xl-auto > * {
                 flex: 0 0 auto;
@@ -1442,185 +940,9 @@
                 flex: 0 0 auto;
                 width: 16.6666666667%
             }
-
-            .col-xl-auto {
-                flex: 0 0 auto;
-                width: auto
-            }
-
-            .col-xl-1 {
-                flex: 0 0 auto;
-                width: 8.33333333%
-            }
-
-            .col-xl-2 {
-                flex: 0 0 auto;
-                width: 16.66666667%
-            }
-
-            .col-xl-3 {
-                flex: 0 0 auto;
-                width: 25%
-            }
-
-            .col-xl-4 {
-                flex: 0 0 auto;
-                width: 33.33333333%
-            }
-
-            .col-xl-5 {
-                flex: 0 0 auto;
-                width: 41.66666667%
-            }
-
-            .col-xl-6 {
-                flex: 0 0 auto;
-                width: 50%
-            }
-
-            .col-xl-7 {
-                flex: 0 0 auto;
-                width: 58.33333333%
-            }
-
-            .col-xl-8 {
-                flex: 0 0 auto;
-                width: 66.66666667%
-            }
-
-            .col-xl-9 {
-                flex: 0 0 auto;
-                width: 75%
-            }
-
-            .col-xl-10 {
-                flex: 0 0 auto;
-                width: 83.33333333%
-            }
-
-            .col-xl-11 {
-                flex: 0 0 auto;
-                width: 91.66666667%
-            }
-
-            .col-xl-12 {
-                flex: 0 0 auto;
-                width: 100%
-            }
-
-            .offset-xl-0 {
-                margin-left: 0
-            }
-
-            .offset-xl-1 {
-                margin-left: 8.33333333%
-            }
-
-            .offset-xl-2 {
-                margin-left: 16.66666667%
-            }
-
-            .offset-xl-3 {
-                margin-left: 25%
-            }
-
-            .offset-xl-4 {
-                margin-left: 33.33333333%
-            }
-
-            .offset-xl-5 {
-                margin-left: 41.66666667%
-            }
-
-            .offset-xl-6 {
-                margin-left: 50%
-            }
-
-            .offset-xl-7 {
-                margin-left: 58.33333333%
-            }
-
-            .offset-xl-8 {
-                margin-left: 66.66666667%
-            }
-
-            .offset-xl-9 {
-                margin-left: 75%
-            }
-
-            .offset-xl-10 {
-                margin-left: 83.33333333%
-            }
-
-            .offset-xl-11 {
-                margin-left: 91.66666667%
-            }
-
-            .g-xl-0,
-            .gx-xl-0 {
-                --bs-gutter-x: 0
-            }
-
-            .g-xl-0,
-            .gy-xl-0 {
-                --bs-gutter-y: 0
-            }
-
-            .g-xl-1,
-            .gx-xl-1 {
-                --bs-gutter-x: 0.25rem
-            }
-
-            .g-xl-1,
-            .gy-xl-1 {
-                --bs-gutter-y: 0.25rem
-            }
-
-            .g-xl-2,
-            .gx-xl-2 {
-                --bs-gutter-x: 0.5rem
-            }
-
-            .g-xl-2,
-            .gy-xl-2 {
-                --bs-gutter-y: 0.5rem
-            }
-
-            .g-xl-3,
-            .gx-xl-3 {
-                --bs-gutter-x: 1rem
-            }
-
-            .g-xl-3,
-            .gy-xl-3 {
-                --bs-gutter-y: 1rem
-            }
-
-            .g-xl-4,
-            .gx-xl-4 {
-                --bs-gutter-x: 1.5rem
-            }
-
-            .g-xl-4,
-            .gy-xl-4 {
-                --bs-gutter-y: 1.5rem
-            }
-
-            .g-xl-5,
-            .gx-xl-5 {
-                --bs-gutter-x: 3rem
-            }
-
-            .g-xl-5,
-            .gy-xl-5 {
-                --bs-gutter-y: 3rem
-            }
         }
 
         @media (min-width: 1400px) {
-            .col-xxl {
-                flex: 1 0 0%
-            }
 
             .row-cols-xxl-auto > * {
                 flex: 0 0 auto;
@@ -1655,179 +977,6 @@
             .row-cols-xxl-6 > * {
                 flex: 0 0 auto;
                 width: 16.6666666667%
-            }
-
-            .col-xxl-auto {
-                flex: 0 0 auto;
-                width: auto
-            }
-
-            .col-xxl-1 {
-                flex: 0 0 auto;
-                width: 8.33333333%
-            }
-
-            .col-xxl-2 {
-                flex: 0 0 auto;
-                width: 16.66666667%
-            }
-
-            .col-xxl-3 {
-                flex: 0 0 auto;
-                width: 25%
-            }
-
-            .col-xxl-4 {
-                flex: 0 0 auto;
-                width: 33.33333333%
-            }
-
-            .col-xxl-5 {
-                flex: 0 0 auto;
-                width: 41.66666667%
-            }
-
-            .col-xxl-6 {
-                flex: 0 0 auto;
-                width: 50%
-            }
-
-            .col-xxl-7 {
-                flex: 0 0 auto;
-                width: 58.33333333%
-            }
-
-            .col-xxl-8 {
-                flex: 0 0 auto;
-                width: 66.66666667%
-            }
-
-            .col-xxl-9 {
-                flex: 0 0 auto;
-                width: 75%
-            }
-
-            .col-xxl-10 {
-                flex: 0 0 auto;
-                width: 83.33333333%
-            }
-
-            .col-xxl-11 {
-                flex: 0 0 auto;
-                width: 91.66666667%
-            }
-
-            .col-xxl-12 {
-                flex: 0 0 auto;
-                width: 100%
-            }
-
-            .offset-xxl-0 {
-                margin-left: 0
-            }
-
-            .offset-xxl-1 {
-                margin-left: 8.33333333%
-            }
-
-            .offset-xxl-2 {
-                margin-left: 16.66666667%
-            }
-
-            .offset-xxl-3 {
-                margin-left: 25%
-            }
-
-            .offset-xxl-4 {
-                margin-left: 33.33333333%
-            }
-
-            .offset-xxl-5 {
-                margin-left: 41.66666667%
-            }
-
-            .offset-xxl-6 {
-                margin-left: 50%
-            }
-
-            .offset-xxl-7 {
-                margin-left: 58.33333333%
-            }
-
-            .offset-xxl-8 {
-                margin-left: 66.66666667%
-            }
-
-            .offset-xxl-9 {
-                margin-left: 75%
-            }
-
-            .offset-xxl-10 {
-                margin-left: 83.33333333%
-            }
-
-            .offset-xxl-11 {
-                margin-left: 91.66666667%
-            }
-
-            .g-xxl-0,
-            .gx-xxl-0 {
-                --bs-gutter-x: 0
-            }
-
-            .g-xxl-0,
-            .gy-xxl-0 {
-                --bs-gutter-y: 0
-            }
-
-            .g-xxl-1,
-            .gx-xxl-1 {
-                --bs-gutter-x: 0.25rem
-            }
-
-            .g-xxl-1,
-            .gy-xxl-1 {
-                --bs-gutter-y: 0.25rem
-            }
-
-            .g-xxl-2,
-            .gx-xxl-2 {
-                --bs-gutter-x: 0.5rem
-            }
-
-            .g-xxl-2,
-            .gy-xxl-2 {
-                --bs-gutter-y: 0.5rem
-            }
-
-            .g-xxl-3,
-            .gx-xxl-3 {
-                --bs-gutter-x: 1rem
-            }
-
-            .g-xxl-3,
-            .gy-xxl-3 {
-                --bs-gutter-y: 1rem
-            }
-
-            .g-xxl-4,
-            .gx-xxl-4 {
-                --bs-gutter-x: 1.5rem
-            }
-
-            .g-xxl-4,
-            .gy-xxl-4 {
-                --bs-gutter-y: 1.5rem
-            }
-
-            .g-xxl-5,
-            .gx-xxl-5 {
-                --bs-gutter-x: 3rem
-            }
-
-            .g-xxl-5,
-            .gy-xxl-5 {
-                --bs-gutter-y: 3rem
             }
         }
 
@@ -2898,11 +2047,6 @@
             background-size: 100%
         }
 
-        .navbar-nav-scroll {
-            max-height: var(--bs-scroll-height, 75vh);
-            overflow-y: auto
-        }
-
         @media (min-width: 576px) {
             .navbar-expand-sm {
                 flex-wrap: nowrap;
@@ -3693,26 +2837,9 @@
             margin-bottom: 3rem
         }
 
-        .pagination {
-            display: flex;
-            padding-left: 0;
-            list-style: none
+        .featured-image-list {
+            object-fit: cover;
         }
-
-        .page-link {
-            position: relative;
-            display: block;
-            color: #0d6efd;
-            text-decoration: none;
-            background-color: #fff;
-            border: 1px solid #dee2e6;
-            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
-        }
-
-        .justify-content-center {
-            justify-content: center !important
-        }
-    </style>
     </style>
 
     <style amp-boilerplate>
@@ -3786,20 +2913,27 @@
 </head>
 
 <body>
+<amp-auto-ads type="adsense" data-ad-client="ca-pub-7279595890212028">
+</amp-auto-ads>
 <header style="background-color: black;">
     <nav>
         <ul>
             <li style="margin-right: 20px;"><a class="nav-link" style="text-decoration: none; color: white"
-                                               href="{% url 'blog' %}">RegiApriandiBlog</a></li>
-            <!--<li><a class="nav-link" style="text-decoration: none; color: white" href="{% url 'blog' %}">Blog</a></li>-->
+                                               href="{% url 'blog_amp' %}">RegiApriandiBlog</a></li>
+            <!--<li><a class="nav-link" style="text-decoration: none; color: white" href="{% url 'blog_amp' %}">Blog</a></li>-->
         </ul>
     </nav>
 </header>
 
 <main>
     <section>
-        <div>
-            <h1 style="color: white;padding-top: 0px; padding-bottom: 0px; font-size:1px">.</h1>
+        <div style="text-align: center;">
+            <h1
+                    style="font-weight: bold; padding-top: 80px; padding-bottom: 20px; padding-left: 20px; padding-right:20px; font-size: 30px;">
+                {{ post.title }} {% endblock title %}</h1>
+            <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
+            <!--{% load social_share %}
+        {% post_to_linkedin object_or_url %}-->
         </div>
     </section>
 </main>
@@ -3807,49 +2941,71 @@
 <section class="supporting">
     <div class="container">
         <div class="row">
-            <!-- Blog Entries Column -->
-            <div class="col-md-8 mt-3 left">
-                {% for post in post_list %}
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <div class="cover-image">
-                            <a href="{% url 'post_detail' post.slug  %}">
-                                <amp-img src="{{ post.image.url }}" layout="responsive" width="280" height="172"
-                                         class="rounded" alt="{{ post.title }}"></amp-img>
-                            </a>
-                        </div>
-                        <a style="text-transform: none; text-decoration: none; color: black;"
-                           href="{% url 'post_detail' post.slug  %}">
-                            <h3 style="text-transform: none; text-decoration: none;">{{ post.title }}</h3>
-                        </a>
-                        <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
-                        <p class="card-text">{{post.content | striptags | truncatewords:25 }}</p>
-                        <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+            <div class="col-md-8 card mb-4  mt-3 left  top">
+                <div class="card-body">
+                    <div class="cover-image">
+                        <amp-img src="{{ post.image.url }}" class="rounded" width="280" height="172" layout="responsive"
+                                 alt="{{post.title}}"></amp-img>
                     </div>
+                    <p style="text-align: left;" class="card-text ">{{ post.content | safe | linebreaksbr }}</p>
                 </div>
-                {% endfor %}
             </div>
             {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+            <div class="col-md-8 card mb-4  mt-3 ">
+                <div class="card-body">
+                    <!-- comments -->
+                    <h2>{{ comments.count }} comments</h2>
+
+                    {% for comment in comments %}
+                    <div class="comments" style="padding: 10px;">
+                        <p class="font-weight-bold">
+                            {{ comment.name }}
+                            <span class=" text-muted font-weight-normal">
+                  {{ comment.created_on }}
+                </span>
+                        </p>
+                        {{ comment.body | linebreaks }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-8 card mb-4  mt-3 ">
+                <div class="card-body">
+                    {% if new_comment %}
+                    <div class="alert alert-success" role="alert">
+                        Your comment is awaiting moderation
+                    </div>
+                    {% else %}
+                    <h3>Leave a comment</h3>
+                    {% load crispy_forms_tags %}
+                    <form style="text-align: left; width: 100%;" target="_top" method="post"
+                          action-xhr="{% url 'post_detail_amp' post.slug  %}">
+                        {% csrf_token %}
+                        {{ comment_form | crispy }}
+                        <br>
+                        <button type="submit" value="Submit" class="btn btn-primary btn-lg">Submit</button>
+                        <div submit-success>
+                            <template type="amp-mustache">
+                                Comment Submitted, Thanks!
+                            </template>
+                        </div>
+
+                        <div submit-error>
+                            <template type="amp-mustache">
+                                Comment Not Submitted!
+                            </template>
+                        </div>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
         </div>
-        {% if is_paginated %}
-        <nav aria-label="Page navigation container"></nav>
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <div><a href="?page={{ page_obj.previous_page_number }}" class="btn btn-primary page-link">&laquo; PREV PAGE</a></div>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <div><a href="?page={{ page_obj.next_page_number }}" class="btn btn-primary page-link">NEXT PAGE &raquo;</a></div>
-            {% endif %}
-        </ul>
-        </nav>
-    </div>
-    {% endif %}
     </div>
 </section>
 
 <footer style="background-color: black;">
     <div class="container">
-        <p><a class="nav-link" href="{% url 'index' %}" style="text-decoration: none; color: white">&copy;
+        <p><a class="nav-link" href="" style="text-decoration: none; color: white">&copy;
             regiapriandi.me 2022</a>
             <a href="https://www.digitalocean.com/?refcode=c80595539677&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img
                     src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%202.svg"

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: django-blog-amp-app-v2-app
+  name: djangoBlogAmpApp-v2-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: django-blog-amp-app-v2-app
+      app: djangoBlogAmpApp-v2-app
   template:
     metadata:
       labels:
-        app: django-blog-amp-app-v2-app
+        app: djangoBlogAmpApp-v2-app
     spec:
       containers:
-      - name: django-blog-amp-app-v2-app
+      - name: djangoBlogAmpApp-v2-app
         image: regiapriandi012/bismillah-final-deploykube:latest
         ports:
         - containerPort: 8000
