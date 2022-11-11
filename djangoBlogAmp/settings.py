@@ -83,7 +83,8 @@ WSGI_APPLICATION = 'djangoBlogAmp.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 # DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 
-"""DATABASES = {
+"""
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ.get('POSTGRES_NAME'),
@@ -92,9 +93,10 @@ WSGI_APPLICATION = 'djangoBlogAmp.wsgi.application'
         'HOST': 'db',
         'PORT': 5432,
     }
-}"""
+}
+"""
 
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -113,7 +115,7 @@ DATABASES={
       'PORT':'5432',
    }
 }
-"""
+
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
