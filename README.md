@@ -7,20 +7,28 @@ Django blog application built with AMP technology to speed up loading on mobile 
 - ### Django-Summernote
   This feature makes it very easy to write blogs in the application.
   
-  <img width="500" alt="image" src="https://user-images.githubusercontent.com/69528812/201313939-31af9d95-5d04-464d-a78c-626c5e084167.png">
+  <img width="700" alt="image" src="https://user-images.githubusercontent.com/69528812/201313939-31af9d95-5d04-464d-a78c-626c5e084167.png">
 - ### AMP Technology
   this technology can speed up the process of loading applications on mobile browsers.
 
-  <img width="500" alt="image" src="https://user-images.githubusercontent.com/69528812/201315817-ce8889eb-a947-4b80-b19b-3cbf6cfaddab.png">
+  <img width="700" alt="image" src="https://user-images.githubusercontent.com/69528812/201315817-ce8889eb-a947-4b80-b19b-3cbf6cfaddab.png">
 - ### RSS Feeds
   Useful for spreading the latest blog content.
   
-  <img width="500" alt="image" src="https://user-images.githubusercontent.com/69528812/201314545-1d836c0c-f9a4-4350-882c-f0d936884c42.png">
+  <img width="700" alt="image" src="https://user-images.githubusercontent.com/69528812/201314545-1d836c0c-f9a4-4350-882c-f0d936884c42.png">
 - ### Sitemap
   Very important to improve the SEO of a blog.
   
-  <img width="500" alt="image" src="https://user-images.githubusercontent.com/69528812/201314621-68631951-ab09-473a-83b5-0e5155fb8d75.png">
+  <img width="700" alt="image" src="https://user-images.githubusercontent.com/69528812/201314621-68631951-ab09-473a-83b5-0e5155fb8d75.png">
+# 
+## App Looks
+### Blog Home
+<img width="941" alt="image" src="https://user-images.githubusercontent.com/69528812/201320642-ef40f33b-458a-4f4f-92d1-b14a43bebecc.png">
 
+### Blog Detail
+<img width="946" alt="image" src="https://user-images.githubusercontent.com/69528812/201320818-fa5550b6-c735-4852-8ecd-a9eaa05bc59e.png">
+
+#
 # Build the App
 ## Docker Compose
 ```
