@@ -59,7 +59,7 @@ kubectl scale deployment webregi-v2-app --replicas=3
 ```
 kubectl create -f webregi-ingress.yaml
 ```
-## Configure Postgresql
+## Configure Postgresql (optional)
 ```
 python manage.py sqlsequencereset webregi
 ```
