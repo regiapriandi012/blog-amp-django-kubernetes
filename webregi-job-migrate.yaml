@@ -1,15 +1,15 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: webregi-migrate
+  name: django-blog-amp-app-migrate
 spec:
   template:
     spec:
       containers:
-        - name: webregi-v2-app
+        - name: django-blog-amp-app-v2-app
           image: regiapriandi012/bismillah-final-deploykube:latest
           command: ["/bin/sh","-c"]
-          args: ["python manage.py makemigrations webregi && python manage.py migrate"]
+          args: ["python manage.py makemigrations django-blog-amp-app && python manage.py migrate"]
           env:
             - name: DATABASE_USER
               value: "regiapriandi"

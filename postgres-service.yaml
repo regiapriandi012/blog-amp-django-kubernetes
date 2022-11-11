@@ -4,7 +4,7 @@ metadata:
   name: db
   labels:
     name: postgres-service
-    app: webregi-v2-app
+    app: django-blog-amp-app-v2-app
 spec:
   type: LoadBalancer
   ports:
@@ -12,4 +12,4 @@ spec:
     targetPort: 5432
   selector:
     name: postgres-pod
-    app: webregi-v2-app
+    app: django-blog-amp-app-v2-app

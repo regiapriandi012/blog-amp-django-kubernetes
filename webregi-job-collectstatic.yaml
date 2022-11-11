@@ -1,12 +1,12 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: webregi-collectstatic
+  name: django-blog-amp-app-collectstatic
 spec:
   template:
     spec:
       containers:
-        - name: webregi-v2-app
+        - name: django-blog-amp-app-v2-app
           image: regiapriandi012/bismillah-final-deploykube:latest
           command: ['python', 'manage.py', 'collectstatic']
           env:

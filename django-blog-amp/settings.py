@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'webregi',
+    'django-blog-amp-app',
     'crispy_forms',
     'django_social_share',
     'django_summernote',
@@ -56,7 +56,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 #  'http://localhost:8000',
 #)
 
-ROOT_URLCONF = 'webregiapriandi.urls'
+ROOT_URLCONF = 'django-blog-amp.urls'
 
 TEMPLATES_DIRS = os.path.join(BASE_DIR,'templates')
 
@@ -76,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'webregiapriandi.wsgi.application'
+WSGI_APPLICATION = 'django-blog-amp.wsgi.application'
 
 
 # Database

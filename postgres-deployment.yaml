@@ -4,19 +4,19 @@ metadata:
   name: postgres-deploy
   labels:
     name: postgres-deploy
-    app: webregi-v2-app
+    app: django-blog-amp-app-v2-app
 spec:
   replicas: 1
   selector:
     matchLabels:
       name: postgres-pod
-      app: webregi-v2-app
+      app: django-blog-amp-app-v2-app
   template:
     metadata:
       name: postgres-pod
       labels:
         name: postgres-pod
-        app: webregi-v2-app
+        app: django-blog-amp-app-v2-app
     spec:
       containers:
       - name: postgres

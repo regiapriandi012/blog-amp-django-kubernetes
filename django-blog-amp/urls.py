@@ -13,7 +13,7 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('webregi.urls')),
+    path('', include('django-blog-amp-app.urls')),
     path('ads.txt', AdsView.as_view()),
     re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
@@ -21,7 +21,7 @@ urlpatterns = [
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
 ]
 
-handler404 = "webregi.views.page_not_found_view"
+handler404 = "django-blog-amp-app.views.page_not_found_view"
 
 """if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)"""
