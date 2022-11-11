@@ -1,9 +1,14 @@
-![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white) ![Amp](https://img.shields.io/badge/Amp-005AF0?style=for-the-badge&logo=amp&logoColor=white) ![Rss](https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white) 
-
 ![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/codeql.yml/badge.svg)
 ![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/dependency-review.yml/badge.svg)
 ![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/django.yml/badge.svg)
 ![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/docker-image.yml/badge.svg)
+
+![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white) 
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) 
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) 
+![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white) 
+![Amp](https://img.shields.io/badge/Amp-005AF0?style=for-the-badge&logo=amp&logoColor=white) 
+![Rss](https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white) 
 
 # Django AMP Blog
 Django blog application built with AMP technology to speed up loading on mobile browsers. This blog application is integrated with django-summernote technology where this technology makes it easy to write blogs on the django admin admin page. This application has also built an RSS feed which is very much needed on a blog.
