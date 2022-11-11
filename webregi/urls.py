@@ -5,8 +5,6 @@ from django.conf import settings
 from .feeds import LatestPostsFeed
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('resume/', views.resume, name='resume'),
     path('amp/blog/', views.PostListAmp.as_view(), name='blog_amp'),
     path('amp/blog/<slug:slug>/', views.post_detail_amp, name='post_detail_amp'),
     path('blog/', views.PostList.as_view(), name='blog'),
