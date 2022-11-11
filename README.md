@@ -1,4 +1,4 @@
-![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/django.ymlll/badge.svg)
+![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/django.yml/badge.svg)
 ![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/codeql.yml/badge.svg)
 ![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/dependency-review.yml/badge.svg)
 ![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/docker-image.yml/badge.svg) 
