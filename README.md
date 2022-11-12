@@ -1,7 +1,9 @@
+![](https://img.shields.io/github/license/regiapriandi012/blog-amp-django)
 ![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/django.yml/badge.svg)
 ![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/codeql.yml/badge.svg)
 ![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/dependency-review.yml/badge.svg)
-![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/docker-image.yml/badge.svg) 
+![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/docker-image.yml/badge.svg)
+![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/docker-publish.yml/badge.svg)
 
 # Django AMP Blog
 Django blog application built with AMP technology to speed up loading on mobile browsers. This blog application is integrated with django-summernote technology where this technology makes it easy to write blogs on the django admin admin page. This application has also built an RSS feed which is very much needed on a blog.
@@ -78,6 +80,31 @@ kubectl scale deployment webregi-v2-app --replicas=3
 ```
 kubectl create -f webregi-ingress.yaml
 ```
+
+## Configure Database Configuration for Kubernetes
+```
+On file blog-amp-django/djangoBlogAmp/settings.py/
+Change ->
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR/'db.sqlite3',
+    }
+}
+
+To ->
+DATABASES={
+   'default':{
+      'ENGINE':'django.db.backends.postgresql',
+      'NAME':os.getenv('DATABASE_NAME'),
+      'USER':os.getenv('DATABASE_USER'),
+      'PASSWORD':os.getenv('DATABASE_PASSWORD'),
+      'HOST':os.getenv('DATABASE_HOST'),
+      'PORT':'5432',
+   }
+}
+```
+
 ## Configure Postgresql (optional)
 ```
 python manage.py sqlsequencereset webregi
