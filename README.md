@@ -1,4 +1,5 @@
 ![](https://img.shields.io/github/license/regiapriandi012/blog-amp-django)
+![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/main.yml/badge.svg)
 ![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/django.yml/badge.svg)
 ![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/codeql.yml/badge.svg)
 ![](https://github.com/regiapriandi012/blog-amp-django/actions/workflows/dependency-review.yml/badge.svg)
