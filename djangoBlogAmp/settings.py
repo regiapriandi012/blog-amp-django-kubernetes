@@ -50,6 +50,10 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
+SUMMERNOTE_CONFIG = {
+    'attachment_filesize_limit': custom_file_limit, # specify the file size
+}
+
 CORS_ORIGIN_ALLOW_ALL = True
 
 #CORS_ORIGIN_WHITELIST = (
