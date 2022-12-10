@@ -51,7 +51,7 @@ MIDDLEWARE = [
 ]
 
 SUMMERNOTE_CONFIG = {
-    'attachment_filesize_limit': custom_file_limit, # specify the file size
+    'attachment_filesize_limit': 5242880
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
